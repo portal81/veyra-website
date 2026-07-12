@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f1e7;
-  --foreground: #241b13;
+  --background: #120f0d;
+  --foreground: #f5efe7;
+  --gold: #f2c16b;
 }
 
 @theme inline {
@@ -17,7 +18,53 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-cairo), Arial, sans-serif;
+  background-image:
+    radial-gradient(circle at top, rgba(242, 193, 107, 0.12), transparent 32%),
+    linear-gradient(180deg, #171311 0%, #0d0a09 100%);
 }
+
+/* Force dark mode color overrides for inline and tailwind classes */
+[style*="color: #241b13"],
+[style*="color:#241b13"],
+[style*="color: rgb(36, 27, 19)"],
+[style*="color:rgba(36,27,19"],
+.text-\[\#241b13\],
+.text-neutral-900,
+.text-slate-900,
+.text-gray-900 {
+  color: var(--foreground) !important;
+}
+
+.text-\[rgba\(36\,27\,19\,0\.5\)\] {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.text-\[rgba\(36\,27\,19\,0\.78\)\] {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* Override borders */
+.border-\[rgba\(212\,164\,79\,0\.18\)\] {
+  border-color: rgba(242, 193, 107, 0.18) !important;
+}
+
+/* Force gold text for headings that were styled as gold or specific highlights */
+.text-gold, .text-amber-600 {
+  color: var(--gold) !important;
+}
+
+/* Glass cards override */
+.bg-white {
+  background-color: rgba(25, 20, 18, 0.6) !important;
+  backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.bg-white\/80 {
+  background-color: rgba(25, 20, 18, 0.8) !important;
+  backdrop-filter: blur(12px);
+}
+
 
 .font-arabic {
   font-family: var(--font-cairo), Arial, sans-serif;
